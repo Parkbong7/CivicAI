@@ -14,6 +14,8 @@ export default function EligibilityGaugeWidget({
   selectedScheme, 
   t 
 }) {
+  const st = t?.statutory || {};
+
   const hasIncome = Boolean(applicantProfile?.annual_income);
   const incomeVal = Number(applicantProfile?.annual_income || 0);
   const incomeEligible = hasIncome && incomeVal <= 250000;
@@ -49,13 +51,14 @@ export default function EligibilityGaugeWidget({
   };
 
   const getBadgeStatus = () => {
-    if (matchScore >= 85) return { label: 'Statutorily Eligible', bg: 'bg-emerald-50 text-emerald-700 border-emerald-200' };
-    if (matchScore >= 50) return { label: 'Partially Qualified', bg: 'bg-blue-50 text-blue-700 border-blue-200' };
-    if (matchScore > 0) return { label: 'Evaluating Profile', bg: 'bg-amber-50 text-amber-700 border-amber-200' };
-    return { label: 'Awaiting Details', bg: 'bg-slate-100 text-slate-500 border-slate-200' };
+    if (matchScore >= 85) return { label: st.eligible || 'Statutorily Eligible', bg: 'bg-emerald-50 text-emerald-700 border-emerald-200' };
+    if (matchScore >= 50) return { label: st.partially || 'Partially Qualified', bg: 'bg-blue-50 text-blue-700 border-blue-200' };
+    if (matchScore > 0) return { label: st.evaluating || 'Evaluating Profile', bg: 'bg-amber-50 text-amber-700 border-amber-200' };
+    return { label: st.awaiting || 'Awaiting Details', bg: 'bg-slate-100 text-slate-500 border-slate-200' };
   };
 
   const badge = getBadgeStatus();
+  const pendingLabel = st.pending || 'Pending';
 
   return (
     <div className="bg-white rounded-2xl border border-slate-200/90 p-5 shadow-xs font-sans">
@@ -65,7 +68,7 @@ export default function EligibilityGaugeWidget({
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-slate-700 stroke-[2]" />
           <h3 className="font-bold text-slate-900 text-sm">
-            Statutory Eligibility Gauge
+            {st.title || 'Statutory Eligibility Gauge'}
           </h3>
         </div>
         <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badge.bg}`}>
@@ -102,7 +105,7 @@ export default function EligibilityGaugeWidget({
               {matchScore}%
             </span>
             <span className="text-[8px] font-bold text-slate-400 uppercase tracking-tighter">
-              Match
+              {st.match || 'Match'}
             </span>
           </div>
         </div>
@@ -110,11 +113,11 @@ export default function EligibilityGaugeWidget({
         {/* Scheme & Direct Benefit Summary */}
         <div className="min-w-0 flex-1">
           <div className="text-xs font-extrabold text-[#0d1e4c] truncate">
-            {selectedScheme?.title || "Post-Matric Scholarship Scheme 2026"}
+            {selectedScheme?.title || st.defaultScheme || "Post-Matric Scholarship Scheme 2026"}
           </div>
           <p className="text-[11px] text-slate-500 mt-0.5 flex items-center gap-1 font-medium">
             <Coins className="w-3.5 h-3.5 text-amber-500 shrink-0" />
-            <span>Benefit: {selectedScheme?.award_amount || 'Direct Benefit Transfer / Official Statutory Service'}</span>
+            <span>{st.benefit || 'Benefit'}: {selectedScheme?.award_amount || 'Direct Benefit Transfer / Official Statutory Service'}</span>
           </p>
         </div>
 
@@ -133,10 +136,12 @@ export default function EligibilityGaugeWidget({
             ) : (
               <Clock className="w-3.5 h-3.5 text-slate-300" />
             )}
-            <span className="text-[11px] font-medium text-slate-700">Income Limit (&le; ₹2.5L)</span>
+            <span className="text-[11px] font-medium text-slate-700">
+              {st.incomeLimit || 'Income Limit (≤ ₹2.5L)'}
+            </span>
           </div>
           <span className={`text-[10px] font-bold ${incomeEligible ? 'text-emerald-700' : hasIncome ? 'text-red-600' : 'text-slate-400'}`}>
-            {hasIncome ? `₹${(incomeVal / 100000).toFixed(1)}L` : 'Pending'}
+            {hasIncome ? `₹${(incomeVal / 100000).toFixed(1)}L` : pendingLabel}
           </span>
         </div>
 
@@ -150,10 +155,12 @@ export default function EligibilityGaugeWidget({
             ) : (
               <Clock className="w-3.5 h-3.5 text-slate-300" />
             )}
-            <span className="text-[11px] font-medium text-slate-700">Academic Score (&ge; 6.0 CGPA)</span>
+            <span className="text-[11px] font-medium text-slate-700">
+              {st.academicScore || 'Academic Score (≥ 6.0 CGPA)'}
+            </span>
           </div>
           <span className={`text-[10px] font-bold ${scoreEligible ? 'text-emerald-700' : hasScore ? 'text-amber-600' : 'text-slate-400'}`}>
-            {hasScore ? `${scoreVal} CGPA` : 'Pending'}
+            {hasScore ? `${scoreVal} CGPA` : pendingLabel}
           </span>
         </div>
 
@@ -165,10 +172,12 @@ export default function EligibilityGaugeWidget({
             ) : (
               <Clock className="w-3.5 h-3.5 text-slate-300" />
             )}
-            <span className="text-[11px] font-medium text-slate-700">Institution Accreditation</span>
+            <span className="text-[11px] font-medium text-slate-700">
+              {st.institution || 'Institution Accreditation'}
+            </span>
           </div>
           <span className={`text-[10px] font-bold truncate max-w-[120px] ${hasCollege ? 'text-emerald-700' : 'text-slate-400'}`}>
-            {hasCollege ? applicantProfile.college_name : 'Pending'}
+            {hasCollege ? applicantProfile.college_name : pendingLabel}
           </span>
         </div>
 
@@ -180,10 +189,12 @@ export default function EligibilityGaugeWidget({
             ) : (
               <Clock className="w-3.5 h-3.5 text-slate-300" />
             )}
-            <span className="text-[11px] font-medium text-slate-700">Category Reservation</span>
+            <span className="text-[11px] font-medium text-slate-700">
+              {st.category || 'Category Reservation'}
+            </span>
           </div>
           <span className={`text-[10px] font-bold ${hasCategory ? 'text-emerald-700' : 'text-slate-400'}`}>
-            {hasCategory ? applicantProfile.category : 'Pending'}
+            {hasCategory ? applicantProfile.category : pendingLabel}
           </span>
         </div>
 

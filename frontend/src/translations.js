@@ -1,4 +1,4 @@
-﻿export const translations = {
+export const translations = {
   en: {
     langCode: "en",
     langName: "English",
@@ -56,7 +56,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "Subsidy Claim",
       other: "Other Services"
     },
-    timeline: {
+        statutory: {
+      title: "Statutory Eligibility Gauge",
+      eligible: "Statutorily Eligible",
+      partially: "Partially Qualified",
+      evaluating: "Evaluating Profile",
+      awaiting: "Awaiting Details",
+      match: "MATCH",
+      benefit: "Benefit",
+      incomeLimit: "Income Limit (≤ ₹2.5L)",
+      academicScore: "Academic Score (≥ 6.0 CGPA)",
+      institution: "Institution Accreditation",
+      category: "Category Reservation",
+      pending: "Pending",
+      defaultScheme: "Post-Matric Scholarship Scheme 2026"
+    },
+timeline: {
       title: "Agent Execution Timeline",
       live: "Live",
       s1: "Understanding user request",
@@ -182,7 +197,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "सब्सिडी दावा",
       other: "अन्य सेवाएं"
     },
-    timeline: {
+        statutory: {
+      title: "वैधानिक पात्रता मापक",
+      eligible: "वैधानिक रूप से पात्र",
+      partially: "आंशिक रूप से योग्य",
+      evaluating: "प्रोफ़ाइल मूल्यांकन",
+      awaiting: "विवरण की प्रतीक्षा",
+      match: "मिलान",
+      benefit: "लाभ",
+      incomeLimit: "पारिवारिक आय सीमा (≤ ₹2.5 लाख)",
+      academicScore: "शैक्षणिक स्कोर (≥ 6.0 CGPA)",
+      institution: "संस्थान मान्यता",
+      category: "श्रेणी / आरक्षण",
+      pending: "लंबित",
+      defaultScheme: "पोस्ट-मैट्रिक छात्रवृत्ति योजना 2026"
+    },
+timeline: {
       title: "एजेंट निष्पादन समयरेखा",
       live: "लाइव",
       s1: "उपयोगकर्ता अनुरोध समझना",
@@ -303,7 +333,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "अनुदान दावा",
       other: "इतर सेवा"
     },
-    timeline: {
+        statutory: {
+      title: "वैधानिक पात्रता मापक",
+      eligible: "कायदेशीररित्या पात्र",
+      partially: "अंशतः पात्र",
+      evaluating: "मूल्यांकन चालू",
+      awaiting: "तपशिलांची प्रतीक्षा",
+      match: "जुळणी",
+      benefit: "लाभ",
+      incomeLimit: "उत्पन्न मर्यादा (≤ ₹2.5 लाख)",
+      academicScore: "शैक्षणिक गुण (≥ 6.0 CGPA)",
+      institution: "संस्था मान्यता",
+      category: "प्रवर्ग आरक्षण",
+      pending: "प्रलंबित",
+      defaultScheme: "पोस्ट-मॅट्रिक शिष्यवृत्ती योजना 2026"
+    },
+timeline: {
       title: "एजंट अंमलबजावणी कालमर्यादा",
       live: "थेट",
       s1: "वापरकर्ता विनंती समजून घेणे",
@@ -422,7 +467,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "மானியம் கோரிக்கை",
       other: "பிற சேவைகள்"
     },
-    timeline: {
+        statutory: {
+      title: "சட்டப்பூர்வ தகுதி அளவுகோல்",
+      eligible: "சட்டப்பூர்வமாக தகுதியுடையவர்",
+      partially: "பகுதி தகுதி பெற்றவர்",
+      evaluating: "மதிப்பீடு செய்யப்படுகிறது",
+      awaiting: "விவரங்களை எதிர்பார்க்கிறது",
+      match: "பொருத்தம்",
+      benefit: "பயன்",
+      incomeLimit: "வருமான வரம்பு (≤ ₹2.5 லட்சம்)",
+      academicScore: "கல்வித் தகுதி (≥ 6.0 CGPA)",
+      institution: "கல்வி நிறுவன அங்கீகாரம்",
+      category: "பிரிவு இடஒதுக்கீடு",
+      pending: "நிலுவையில்",
+      defaultScheme: "மெட்ரிக் பிந்தைய கல்வி உதவித்தொகை திட்டம் 2026"
+    },
+timeline: {
       title: "செயல்பாட்டு காலவரிசை",
       live: "நேரலை",
       s1: "பயனர் கோரிக்கையைப் புரிந்துகொள்ளுதல்",
@@ -541,7 +601,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "రాయితీ క్లెయిమ్",
       other: "ఇతర సేవలు"
     },
-    timeline: {
+        statutory: {
+      title: "చట్టబద్ధమైన అర్హత గేజ్",
+      eligible: "చట్టబద్ధంగా అర్హులు",
+      partially: "పాక్షికంగా అర్హత",
+      evaluating: "ప్రొఫైల్ పరిశీలన",
+      awaiting: "వివరాల కోసం వేచి ఉంది",
+      match: "సరిపోలిక",
+      benefit: "ప్రయోజనం",
+      incomeLimit: "ఆదాయ పరిమితి (≤ ₹2.5 లక్షలు)",
+      academicScore: "విద్యా స్కోర్ (≥ 6.0 CGPA)",
+      institution: "సంస్థ గుర్తింపు",
+      category: "కేటగిరీ రిజర్వేషన్",
+      pending: "పెండింగ్",
+      defaultScheme: "పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్ పథకం 2026"
+    },
+timeline: {
       title: "ఏజెంట్ అమలు కాలక్రమం",
       live: "లైవ్",
       s1: "వినియోగదారు అభ్యర్థనను అర్థం చేసుకోవడం",
@@ -660,7 +735,22 @@ Since there is no login required, please tell me your details to get started:
       subsidy: "ভর্তুকি দাবি",
       other: "অন্যান্য পরিষেবা"
     },
-    timeline: {
+        statutory: {
+      title: "বিধিবদ্ধ যোগ্যতার পরিমাপক",
+      eligible: "বিধিবদ্ধভাবে যোগ্য",
+      partially: "আংশিকভাবে যোগ্য",
+      evaluating: "প্রোফাইল মূল্যায়ন",
+      awaiting: "বিবরণের অপেক্ষায়",
+      match: "মিল",
+      benefit: "সুবিধা",
+      incomeLimit: "আয়ের সীমা (≤ ₹২.৫ লাখ)",
+      academicScore: "শিক্ষাগত স্কোর (≥ ৬.০ CGPA)",
+      institution: "প্রতিষ্ঠানের স্বীকৃতি",
+      category: "শ্রেণি সংরক্ষণ",
+      pending: "অপেক্ষারত",
+      defaultScheme: "পোস্ট-ম্যাট্রিক বৃত্তি প্রকল্প 2026"
+    },
+timeline: {
       title: "এজেন্ট সম্পাদন সময়রেখা",
       live: "লাইভ",
       s1: "ব্যবহারকারীর অনুরোধ বোঝা",

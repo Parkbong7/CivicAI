@@ -200,7 +200,7 @@ class BrowserAutomationService:
                     try:
                         browser = await p.chromium.launch(channel="msedge", headless=headless)
                     except Exception as ex2:
-                        browser = await p.chromium.launch(headless=headless)
+                        browser = await p.chromium.launch(headless=headless, args=["--no-sandbox", "--disable-dev-shm-usage", "--disable-gpu"])
 
             self.browsers[session_id] = browser
             context = await browser.new_context(viewport={"width": 1280, "height": 800})

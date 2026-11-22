@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: civicpilot-ai
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: HEADLESS
+        value: "true"

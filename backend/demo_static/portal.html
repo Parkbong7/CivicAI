@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Scholarship Portal - Demonstration Environment</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .stamp-badge {
+      border: 2px dashed #0d9488;
+      border-radius: 6px;
+      padding: 4px 8px;
+      font-weight: 700;
+      color: #0d9488;
+      display: inline-block;
+      transform: rotate(-2deg);
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans min-h-screen">
+
+  <!-- Demo Disclaimer Banner -->
+  <div class="bg-amber-500 text-slate-900 px-4 py-2 text-center text-xs md:text-sm font-semibold flex items-center justify-center gap-2 shadow-sm">
+    <i class="fa-solid fa-triangle-exclamation text-amber-950"></i>
+    <span>DEMONSTRATION ENVIRONMENT: This is a simulated portal created for CivicPilot AI browser automation testing. Not an official government portal.</span>
+  </div>
+
+  <!-- Gov Header -->
+  <header class="bg-white border-b border-slate-200 shadow-sm sticky top-0 z-30">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold text-lg shadow">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+        <div>
+          <h1 class="font-bold text-slate-900 text-base md:text-lg leading-tight">National Scholarship Portal</h1>
+          <p class="text-xs text-slate-500">Ministry of Electronics & Information Technology | Demo Sandbox</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 border border-teal-300">
+          <span class="w-2 h-2 mr-1.5 bg-teal-500 rounded-full animate-ping"></span>
+          CivicPilot Automated Client Connected
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-4 py-6">
+
+    <!-- Active Scheme Banner -->
+    <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white rounded-xl p-5 mb-6 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider bg-blue-700/60 px-2 py-0.5 rounded text-blue-200">Online Application Form</span>
+        <h2 class="text-xl md:text-2xl font-bold mt-1" id="portal_scheme_title">Post-Matric Scholarship Scheme for College Students 2026-27</h2>
+        <p class="text-blue-200 text-xs mt-1">Application Cycle: Academic Year 2026-2027 | Central Assistance Scheme</p>
+      </div>
+      <div class="bg-white/10 backdrop-blur rounded-lg p-3 text-right">
+        <div class="text-xs text-blue-200">Application Deadline</div>
+        <div class="text-sm font-bold text-white">31 December 2026</div>
+      </div>
+    </div>
+
+    <!-- Application Form Container -->
+    <div id="application_form_wrapper" class="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+      
+      <div class="border-b border-slate-200 px-6 py-4 bg-slate-50 flex items-center justify-between">
+        <h3 class="font-bold text-slate-800 text-base flex items-center gap-2">
+          <i class="fa-regular fa-file-lines text-blue-600"></i>
+          Standard Common Application Form (Form-A)
+        </h3>
+        <span class="text-xs text-slate-500">All fields marked with <span class="text-red-500">*</span> are mandatory</span>
+      </div>
+
+      <form id="scholarship_demo_form" class="p-6 space-y-6" onsubmit="event.preventDefault(); submitDemoApplication();">
+        
+        <!-- Section 1: Personal Details -->
+        <div>
+          <h4 class="text-xs font-bold text-blue-900 uppercase tracking-wider border-b border-blue-100 pb-1 mb-4 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">1</span>
+            Personal & Demographic Information
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Full Legal Name <span class="text-red-500">*</span></label>
+              <input type="text" id="applicant_name" name="applicant_name" placeholder="As per official documents" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+              <input type="email" id="applicant_email" name="applicant_email" placeholder="student@example.com" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Mobile Number <span class="text-red-500">*</span></label>
+              <input type="tel" id="applicant_phone" name="applicant_phone" placeholder="10-digit mobile" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+              <input type="date" id="applicant_dob" name="applicant_dob" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Gender <span class="text-red-500">*</span></label>
+              <select id="gender" name="gender" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <option value="">Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Category <span class="text-red-500">*</span></label>
+              <select id="category" name="category" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <option value="">Select Category</option>
+                <option value="General">General</option>
+                <option value="OBC">OBC (Other Backward Class)</option>
+                <option value="SC">SC (Scheduled Caste)</option>
+                <option value="ST">ST (Scheduled Tribe)</option>
+                <option value="EWS">EWS (Economically Weaker Section)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Academic Details -->
+        <div>
+          <h4 class="text-xs font-bold text-blue-900 uppercase tracking-wider border-b border-blue-100 pb-1 mb-4 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">2</span>
+            Academic & Enrollment Details
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2">
+              <label class="block text-xs font-medium text-slate-700 mb-1">Enrolled College / University <span class="text-red-500">*</span></label>
+              <input type="text" id="college_name" name="college_name" placeholder="Full name of recognized institute" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Course / Program <span class="text-red-500">*</span></label>
+              <input type="text" id="course" name="course" placeholder="e.g. B.Tech Computer Science" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Current Year of Study <span class="text-red-500">*</span></label>
+              <select id="year_of_study" name="year_of_study" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                <option value="">Select Year</option>
+                <option value="1st Year">1st Year</option>
+                <option value="2nd Year">2nd Year</option>
+                <option value="3rd Year">3rd Year</option>
+                <option value="4th Year">4th Year</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Academic Score / CGPA <span class="text-red-500">*</span></label>
+              <input type="number" step="0.01" id="gpa_percentage" name="gpa_percentage" placeholder="e.g. 8.5 or 85" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">State of Domicile <span class="text-red-500">*</span></label>
+              <input type="text" id="state" name="state" value="Delhi" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Income & Bank Details -->
+        <div>
+          <h4 class="text-xs font-bold text-blue-900 uppercase tracking-wider border-b border-blue-100 pb-1 mb-4 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">3</span>
+            Financial & Direct Benefit Transfer (DBT) Bank Details
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Annual Family Income (INR) <span class="text-red-500">*</span></label>
+              <input type="number" id="annual_income" name="annual_income" placeholder="e.g. 180000" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Student Bank Name <span class="text-red-500">*</span></label>
+              <input type="text" id="bank_name" name="bank_name" value="State Bank of India" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Savings Account Number <span class="text-red-500">*</span></label>
+              <input type="text" id="account_number" name="account_number" placeholder="11 to 16 digit account" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Bank IFSC Code <span class="text-red-500">*</span></label>
+              <input type="text" id="ifsc_code" name="ifsc_code" value="SBIN0001234" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+            <div>
+              <label class="block text-xs font-medium text-slate-700 mb-1">Aadhaar Identification <span class="text-red-500">*</span></label>
+              <input type="text" id="aadhaar_number" name="aadhaar_number" placeholder="12-digit number" value="XXXXXXXX9842" required
+                class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Document Verification -->
+        <div>
+          <h4 class="text-xs font-bold text-blue-900 uppercase tracking-wider border-b border-blue-100 pb-1 mb-4 flex items-center gap-2">
+            <span class="w-5 h-5 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">4</span>
+            Document Verification Checklist
+          </h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between">
+              <div>
+                <div class="text-xs font-semibold text-slate-700">Income Certificate</div>
+                <div class="text-[10px] text-slate-400">PDF / Verified Digilocker</div>
+              </div>
+              <span id="badge_income" class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">Attached</span>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between">
+              <div>
+                <div class="text-xs font-semibold text-slate-700">Marksheet / Grade Card</div>
+                <div class="text-[10px] text-slate-400">Previous Exam Marksheet</div>
+              </div>
+              <span id="badge_marksheet" class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">Attached</span>
+            </div>
+            <div class="p-3 bg-slate-50 border border-slate-200 rounded-lg flex items-center justify-between">
+              <div>
+                <div class="text-xs font-semibold text-slate-700">College Bonafide / ID</div>
+                <div class="text-[10px] text-slate-400">Issued by Registrar</div>
+              </div>
+              <span id="badge_bonafide" class="text-xs px-2 py-0.5 rounded bg-emerald-100 text-emerald-700 font-medium">Attached</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 5: Statutory Declaration -->
+        <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" id="declaration_checkbox" name="declaration_checkbox" required class="mt-1 w-4 h-4 text-blue-600 rounded">
+            <span class="text-xs text-blue-900 leading-relaxed">
+              I hereby declare that all information furnished above is true, complete and correct to the best of my knowledge and belief. I understand that any false statement or omission will lead to disqualification and recovery of scholarship benefits.
+            </span>
+          </label>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="text-xs text-slate-500 flex items-center gap-1.5">
+            <i class="fa-solid fa-shield-halved text-teal-600"></i>
+            End-to-End SSL 256-Bit Encrypted Portal Form
+          </div>
+          <div class="flex items-center gap-3 w-full sm:w-auto">
+            <button type="button" id="btn_validate" onclick="validateFormFields()"
+              class="px-4 py-2 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-lg transition border border-slate-300">
+              Validate Fields
+            </button>
+            <button type="button" id="btn_submit_application" onclick="submitDemoApplication()"
+              class="w-full sm:w-auto px-6 py-2.5 text-xs font-bold text-white bg-blue-700 hover:bg-blue-800 rounded-lg transition shadow flex items-center justify-center gap-2">
+              <i class="fa-solid fa-paper-plane"></i>
+              Submit Demo Application
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+
+    <!-- Submission Receipt Card (Hidden by default, shown on submit) -->
+    <div id="receipt_container" class="hidden mt-6 bg-white rounded-xl shadow-lg border border-emerald-200 overflow-hidden">
+      <div class="bg-gradient-to-r from-emerald-600 to-teal-700 px-6 py-4 text-white flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-circle-check text-2xl"></i>
+          <div>
+            <h3 class="font-bold text-base">Application Submitted Successfully</h3>
+            <p class="text-xs text-emerald-100">National Scholarship Portal (Demo Submission Acknowledgment)</p>
+          </div>
+        </div>
+        <div class="stamp-badge bg-white text-emerald-800">
+          PROVISIONALLY SUBMITTED
+        </div>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 pb-4 border-b border-slate-200">
+          <div>
+            <div class="text-xs text-slate-500">Demo Reference No.</div>
+            <div class="font-mono font-bold text-blue-900 text-sm md:text-base" id="receipt_ref_no">NSP-DEMO-2026-98241</div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500">Applicant Name</div>
+            <div class="font-bold text-slate-800 text-sm" id="receipt_applicant_name">-</div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500">Submission Date & Time</div>
+            <div class="font-medium text-slate-700 text-xs" id="receipt_timestamp">-</div>
+          </div>
+          <div>
+            <div class="text-xs text-slate-500">Scheme Category</div>
+            <div class="font-medium text-slate-700 text-xs" id="receipt_category">Post-Matric (Merit-cum-Means)</div>
+          </div>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-lg text-xs space-y-2 text-slate-600">
+          <p><span class="font-semibold text-slate-800">Institutional Verification:</span> Application forwarded to College Nodal Officer for online verification.</p>
+          <p><span class="font-semibold text-slate-800">Direct Benefit Transfer:</span> Bank account will receive subsidy upon state level approval.</p>
+          <p class="text-[11px] text-slate-400">This receipt has been generated autonomously via CivicPilot AI Playwright Agent workflow.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    function validateFormFields() {
+      const name = document.getElementById('applicant_name')?.value;
+      const income = document.getElementById('annual_income')?.value;
+      const gpa = document.getElementById('gpa_percentage')?.value;
+      return true;
+    }
+
+    function submitDemoApplication() {
+      const refNo = "NSP-DEMO-" + Math.floor(100000 + Math.random() * 900000);
+      const name = document.getElementById('applicant_name')?.value || "Student Applicant";
+      const now = new Date().toLocaleString();
+
+      const refEl = document.getElementById('receipt_ref_no');
+      if (refEl) refEl.innerText = refNo;
+      const nameEl = document.getElementById('receipt_applicant_name');
+      if (nameEl) nameEl.innerText = name;
+      const timeEl = document.getElementById('receipt_timestamp');
+      if (timeEl) timeEl.innerText = now;
+      const rec = document.getElementById('receipt_container');
+      if (rec) {
+        rec.classList.remove('hidden');
+        rec.style.display = 'block';
+        rec.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      window.lastSubmittedReference = refNo;
+      console.log("Demo scholarship submitted:", { refNo, name, now });
+      return refNo;
+    }
+  </script>
+</body>
+</html>

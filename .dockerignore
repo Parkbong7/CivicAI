@@ -1,0 +1,14 @@
+# Ignore local node_modules & python cache during docker build
+frontend/node_modules
+**/__pycache__
+**/.pytest_cache
+*.pyc
+*.pyo
+*.pyd
+.env
+.git
+.github
+tests
+screenshots/*.jpg
+screenshots/*.png
+*.md

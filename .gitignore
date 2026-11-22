@@ -1,0 +1,33 @@
+# Environment and secrets
+.env
+*.env
+backend/.env
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.pytest_cache/
+.pytest_cache/
+venv/
+.venv/
+env/
+
+# Node & Frontend artifacts
+node_modules/
+frontend/node_modules/
+dist/
+frontend/dist/
+.npm
+npm-debug.log*
+
+# Database & Runtime logs
+*.db
+backend/civicpilot.db
+backend/screenshots/*.jpg
+backend/screenshots/*.png
+backend/storage/
+
+# Operating system files
+.DS_Store
+Thumbs.db

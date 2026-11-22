@@ -4,6 +4,11 @@ import asyncio
 import logging
 from contextlib import asynccontextmanager
 
+# Ensure backend directory is in sys.path for direct imports (routes, database, services, models)
+BACKEND_DIR = os.path.dirname(os.path.abspath(__file__))
+if BACKEND_DIR not in sys.path:
+    sys.path.insert(0, BACKEND_DIR)
+
 # Ensure Windows uses ProactorEventLoop for Playwright subprocess compatibility
 if sys.platform == "win32":
     asyncio.set_event_loop_policy(asyncio.WindowsProactorEventLoopPolicy())
